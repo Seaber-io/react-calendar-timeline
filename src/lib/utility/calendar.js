@@ -198,8 +198,11 @@ export function calculateDimensions({
   const itemTimeRange = itemTimeEnd - itemTimeStart
 
   // restrict startTime and endTime to be bounded by canvasTimeStart and canvasTimeEnd
-  const effectiveStartTime = Math.max(itemTimeStart, canvasTimeStart)
-  const effectiveEndTime = Math.min(itemTimeEnd, canvasTimeEnd)
+  // const effectiveStartTime = Math.max(itemTimeStart, canvasTimeStart)
+  // const effectiveEndTime = Math.min(itemTimeEnd, canvasTimeEnd)
+  // NOTE: These are overridden in this fork to allow items to start/end outside of timeline bounds
+  const effectiveStartTime = itemTimeStart
+  const effectiveEndTime = itemTimeEnd
 
   const left = calculateXPositionForTime(
     canvasTimeStart,
